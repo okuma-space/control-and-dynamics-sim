@@ -1,8 +1,8 @@
 # control-and-dynamics-sim
-# balloon-simulation
-A learning project for balloon engineering simulation
+# control-and-dynamics-simulation
+A learning project for control engineering and dynamics simulation
 
-本リポジトリは学習用途を目的としており，READMEおよびコードコメントは日本語で記述している．
+本リポジトリは制御工学とダイナミクス学習用途を目的としており，READMEおよびコードコメントは日本語で記述している．
 
 計算部分もC++エンジン化せず，まずはモデル検証と可視化を優先してPythonで試作している.
 
