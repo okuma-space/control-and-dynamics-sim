@@ -11,7 +11,7 @@ def simulate():
     # 初期値
     simulate_time = 10.0  # シミュレーション実行時間[sec]
     resolution_sec = 0.01  # シミュレーション時間解像度[sec]
-    current_state = np.array([0.0, 0.0])  # 初期位置[m],初期速度[m/s]
+    current_state = np.array([0.0, 1.0])  # 初期位置[m],初期速度[m/s]
 
     # 型準備
     time_vector = []
