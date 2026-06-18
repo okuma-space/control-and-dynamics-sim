@@ -1,5 +1,4 @@
 # control-and-dynamics-sim
-# control-and-dynamics-simulation
 A learning project for control engineering and dynamics simulation
 
 本リポジトリは制御工学とダイナミクス学習用途を目的としており，READMEおよびコードコメントは日本語で記述している．
