@@ -8,8 +8,7 @@ A learning project for control engineering and dynamics simulation
 作業ログのためにPRは作っているが,コードレビューは主にローカル環境で自主的に実施している．
 
 # 結果サマリ
-
-
+- [結果サマリ:latest](https://github.com/okuma-space/control-and-dynamics-sim/blob/main/docs/report.md)
 
 
 # シミュレーション実行手順
