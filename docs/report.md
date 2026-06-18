@@ -19,7 +19,9 @@
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/6)
 
 P制御を実装し, 50[m]を停止目標にしてみた.
+
 P制御だけでは止まらない事が確認できた.
+
 目標点を中心として,加速度が完全に対象になるから収束しないが想定通りではある.
 
 ###### Figures 
