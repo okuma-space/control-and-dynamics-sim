@@ -1,7 +1,7 @@
 import dynamics
 import numpy as np
 import visualize
-
+import control
 
 def simulate():
     """
@@ -9,10 +9,11 @@ def simulate():
     """
 
     # 初期値
-    simulate_time = 10.0  # シミュレーション実行時間[sec]
+    simulate_time = 1000.0  # シミュレーション実行時間[sec]
     resolution_sec = 0.01  # シミュレーション時間解像度[sec]
     current_state = np.array([0.0, 0.0])  # 初期位置[m],初期速度[m/s]
-    control_input_vector = np.array([0.1])  # 初期加速度[m/s^2]
+    target_state = np.array([50.0, 0.0])  # 目標位置[m],目標速度[m/s]
+    gain = np.array([0.0005, 0.0])  # P制御器のゲイン
 
     # 型準備
     time_vector = []
@@ -21,9 +22,12 @@ def simulate():
 
     # 伝搬ループ
     while current_time < simulate_time:
+        # 制御入力を計算する
+        control_input = control.p_controller(target_state, current_state, gain)
+
         # ダイナミクスモデルから状態ベクトルの一次微分を取得する
         state_derivative = dynamics.linear_motion_model(
-            current_state, control_input_vector
+            current_state, control_input
         )  # 初期加速度[m/s^2]
 
         # 状態ベクトルを更新する

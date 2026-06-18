@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def linear_motion_model(state_vector, control_input_vector):
+def linear_motion_model(state_vector, control_input):
     """
     Compute the time derivative of a 1D acceleration-input model.
 
@@ -16,7 +16,7 @@ def linear_motion_model(state_vector, control_input_vector):
         numpy.ndarray: time derivative [position_dot, velocity_dot]
     """
     velocity = state_vector[1]
-    acceleration = control_input_vector[0]
+    acceleration = control_input
 
     position_derivative = velocity
     velocity_derivative = acceleration
