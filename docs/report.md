@@ -13,12 +13,23 @@
 ## 5 Environment models(環境モデル)
 
 ## Appendix. 過去versionの検証ログ(保存/振り返り用)
+### version0.3
+[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.2)
+
+[PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/2)
+
+加速度を一定として加える事で、等加速度直線運動が実装できている事が確認できた.
+
+###### Figures 
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.3_.png)
+
+
 ### version0.2
 [Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.2)
 
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/2)
 
-右肩上がりの等速直線運動が実装できている事が確認できた.
+初期速度を設定することで右肩上がりの等速直線運動が実装できている事が確認できた.
 
 ###### Figures 
 ![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.2_.png)
