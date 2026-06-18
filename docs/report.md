@@ -13,9 +13,7 @@
 ## 5 Environment models(環境モデル)
 
 ## Appendix. 過去versionの検証ログ(保存/振り返り用)
-### version0.1
-version0.1として一次元の直線運動のダイナミクスを実装.
-
+### version0.2
 [Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.2)
 
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/2)
