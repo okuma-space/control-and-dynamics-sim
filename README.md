@@ -56,8 +56,8 @@ docker run -it --rm -v ${PWD}:/control-and-dynamics-sim control-and-dynamics-sim
 
 ## python format & style check(ruff)
 ```bash
-ruff format src
-ruff check src --fix
+ruff format src scripts tests
+ruff check src scripts tests --fix
 ```
 
 スタイルチェックが厳格すぎるため導入を検討中であるが以下でpylintの実行も可能
