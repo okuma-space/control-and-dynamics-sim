@@ -15,7 +15,7 @@ A learning project for control engineering and dynamics simulation
 # シミュレーション実行手順
 
 # 学習文献
-- 
+- はじめての制御工学 改訂第二版
 
 # issues
 現時点での改善アイディアなどはissuesに記載.
@@ -56,8 +56,8 @@ docker run -it --rm -v ${PWD}:/control-and-dynamics-sim control-and-dynamics-sim
 
 ## python format & style check(ruff)
 ```bash
-ruff format src scripts tests
-ruff check src scripts tests --fix
+ruff format src
+ruff check src --fix
 ```
 
 スタイルチェックが厳格すぎるため導入を検討中であるが以下でpylintの実行も可能
