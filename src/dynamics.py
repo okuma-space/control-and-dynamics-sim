@@ -1,22 +1,25 @@
 import numpy as np
 
 
-def linear_motion_model(state_vector, control_input):
+def linear_motion_model(state_vector, control_input, mass):
     """
-    Compute the time derivative of a 1D acceleration-input model.
+    平面直線モデルのダイナミクス.
+        (はじめての制御工学P.17)
 
-    State:
-        state_vector[0]: position [m]
-        state_vector[1]: velocity [m/s]
+    Args:
+        State 状態ベクトル:
+            state_vector[0]: 位置 [m]
+            state_vector[1]: 速度 [m/s]
 
-    Control input:
-        control_input_vector[0]: acceleration [m/s^2]
+        Control input 制御入力: 力 [N]
+
+        mass: 質量 [kg]
 
     Returns:
-        numpy.ndarray: time derivative [position_dot, velocity_dot]
+        numpy.ndarray: 一次微分 [position_dot 速度[m/s], velocity_dot 加速度[m/s^2]]
     """
     velocity = state_vector[1]
-    acceleration = control_input
+    acceleration = control_input / mass # 加速度[m/s^2] = 力[N] / 質量[kg]
 
     position_derivative = velocity
     velocity_derivative = acceleration

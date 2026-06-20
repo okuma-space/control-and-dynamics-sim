@@ -5,21 +5,53 @@
 ## 1.気球飛翔ダイナミクスシミュレーション
 
 ## 2 運動ダイナミクスモデル
+### 2.1 平面直線運動モデル
+### 2.2 平面回転運動モデル
+### 2.3 平面直線運動モデル(粘性摩擦込み)
+### 2.4 垂直駆動アームモデル
+### 2.5 RL回路モデル
+### 2.6 RC回路モデル
+### 2.7 RLC回路モデル
+### 2.8 増幅回路モデル
+### 2.9 液体の電熱機モデル
+### 2.10 機械式振動計モデル
+### 2.11 タンクモデル
+### 2.12 結合2タンクモデル
 
-## 3 気球モデル
 
-## 4 制御モデル
+## 3 制御モデル
+### 3.1 P制御モデル
+### 3.2 D制御モデルモデル
+### 3.3 I制御モデルモデル
+### 3.4 PD, PID制御モデル
+
+
 
 ## 5 Environment models(環境モデル)
 
 ## Appendix. 過去versionの検証ログ(保存/振り返り用)
-### version0.4
-[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.4)
+### version0.5
+[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.5)
 
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/6)
 
+D制御を実装し, PD制御にしてみた.
+
+正しく制御されて目標位置で停止している事が確認できる.
+
+###### Figures 
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.5_.png)
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.5_.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.5__.png)
+![pd_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pd_control_result_0.5_.png)
+
+### version0.4
+[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.4)
+
 P制御を実装し, 50[m]を停止目標にしてみた.
+
 P制御だけでは止まらない事が確認できた.
+
 目標点を中心として,加速度が完全に対象になるから収束しないが想定通りではある.
 
 ###### Figures 
