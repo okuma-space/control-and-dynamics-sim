@@ -37,12 +37,17 @@
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/10)
 
 粘性摩擦を実装した.
+
 摩擦なしのケース.
+
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_a.gif)
 
 摩擦ありのケース.
+
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_b.gif)
+
 摩擦による加速遅れと減衰が発生しているのがわかる.
+
 
 制御ゲインは共通だが,減衰が効く分制御が安定して収束しやすい.
 
