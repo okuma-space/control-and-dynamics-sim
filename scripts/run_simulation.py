@@ -17,12 +17,13 @@ def linear_motion_simulation():
     current_time = 0.0
     current_state = np.array([0.0, 0.0])  # 初期位置 [m], 初期速度 [m/s]
     target_state = np.array([50.0, 0.0])  # 目標位置 [m], 目標速度 [m/s]
-
+    
     p_gain = 1.0e-2  # P制御器のゲイン
     i_gain = 1.0e-6  # I制御器のゲイン
-    d_gain = 5.0e-1  # D制御器のゲイン
+    d_gain = 1.0e-2  # D制御器のゲイン
 
     mass = 1.0  # 質量 [kg]
+    damping_coefficient = 1.0e-2  # 摩擦係数 [Ns/m]
     # --------------------------------------------------------------
 
     # シミュレーション実行
@@ -36,6 +37,7 @@ def linear_motion_simulation():
         i_gain,
         d_gain,
         mass,
+        damping_coefficient
     )
 
     # 可視化

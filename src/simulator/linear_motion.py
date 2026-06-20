@@ -13,6 +13,7 @@ def propagate(
     simulate_time,
     resolution_sec,
     simulation_history,
+    damping_coefficient=0.0
 ):
     """
     Propagate 1D linear motion with PID control.
@@ -29,6 +30,7 @@ def propagate(
             current_state,
             pid_control_input,
             mass,
+            damping_coefficient
         )
 
         # 状態更新
@@ -81,6 +83,7 @@ def simulate(
     i_gain=1.0e-6,
     d_gain=5.0e-1,
     mass=1.0,
+    damping_coefficient=0.0
 ):
     """
     Simulates the linear motion of a system using the linear motion dynamics model.
@@ -134,6 +137,7 @@ def simulate(
         simulate_time=simulate_time,
         resolution_sec=resolution_sec,
         simulation_history=history,
+        damping_coefficient=damping_coefficient
     )
 
 

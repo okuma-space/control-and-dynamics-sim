@@ -12,6 +12,21 @@ A learning project for control engineering and dynamics simulation
 
 
 # シミュレーション実行手順
+```bash
+ python3 ./scripts/run_simulation.py <target_model>
+```
+
+
+直線運動モデル
+```bash
+ python3 ./scripts/run_simulation.py linear_motion
+```
+
+回転運動モデル
+
+```bash
+ python3 ./scripts/run_simulation.py rigid_body_rotation
+```
 
 # 学習文献
 - はじめての制御工学 改訂第二版
