@@ -31,7 +31,42 @@
 
 ## Appendix. 過去versionの検証ログ(保存/振り返り用)
 
-### version0.6
+### version0.8
+[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.8)
+
+[PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/10)
+
+粘性摩擦を実装した.
+摩擦なしのケース.
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_a.gif)
+
+摩擦ありのケース.
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_b.gif)
+摩擦による加速遅れと減衰が発生しているのがわかる.
+
+制御ゲインは共通だが,減衰が効く分制御が安定して収束しやすい.
+
+各要素の比較は以下.
+
+###### Figures 
+位置速度
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.6_a.png)
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.6_b.png)
+PID制御入力
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_a.png)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_b.png)
+P制御入力
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.6_a.png)
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.6_b.png)
+I制御入力
+![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_a.png)
+![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_b.png)
+D制御入力
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_a.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_b.png)
+
+
+### version0.7
 [Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.6)
 
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/8)
@@ -44,7 +79,7 @@
 ![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_p_control_result_0.7_a.png)
 ![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
 ![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_pid_control_result_076_a.png)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_pid_control_result_0.7_a.png)
 
 ゲインを調整して振動をせずに収束できるようにした.
 
@@ -58,10 +93,10 @@
 gif動画.
 
 振動して収束するケース.
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_animation_0.7_a.gif)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_animation_0.7_a.gif)
 
 オーバーシュートせずに収束するケース.
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_animation_0.7_b.gif)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_animation_0.7_b.gif)
 
 
 
