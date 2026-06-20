@@ -37,12 +37,17 @@
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/10)
 
 粘性摩擦を実装した.
+
 摩擦なしのケース.
+
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_a.gif)
 
 摩擦ありのケース.
+
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_b.gif)
+
 摩擦による加速遅れと減衰が発生しているのがわかる.
+
 
 制御ゲインは共通だが,減衰が効く分制御が安定して収束しやすい.
 
@@ -50,18 +55,23 @@
 
 ###### Figures 
 位置速度
+
 ![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.8_a.png)
 ![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.8_b.png)
 PID制御入力
+
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.8_a.png)
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.8_b.png)
 P制御入力
+
 ![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.8_a.png)
 ![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.8_b.png)
 I制御入力
+
 ![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_a.png)
 ![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_b.png)
 D制御入力
+
 ![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_a.png)
 ![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_b.png)
 
