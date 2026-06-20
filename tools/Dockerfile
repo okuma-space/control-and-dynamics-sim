@@ -27,9 +27,11 @@ RUN pip install \
         pytest-cov \
         plotly \
         pylint
-        
+
 WORKDIR /control-and-dynamics-sim
 COPY . /control-and-dynamics-sim
 
-ENV PYTHONPATH=/control-and-dynamics-sim/src
+ENV PYTHONPATH=/control-and-dynamics-sim/src:/control-and-dynamics-sim/scripts
+ENV MPLBACKEND=Agg
+
 CMD ["bash"]
