@@ -40,11 +40,11 @@
 
 摩擦なしのケース.
 
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_a.gif)
+![pid_control](images/generated/v0/linear_motion_animation_0.8_a.gif)
 
 摩擦ありのケース.
 
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.8_b.gif)
+![pid_control](images/generated/v0/linear_motion_animation_0.8_b.gif)
 
 摩擦による加速遅れと減衰が発生しているのがわかる.
 
@@ -56,24 +56,24 @@
 ###### Figures 
 位置速度
 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.8_a.png)
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.8_b.png)
+![trajectry](images/generated/v0/linear_motion_result_0.8_a.png)
+![trajectry](images/generated/v0/linear_motion_result_0.8_b.png)
 PID制御入力
 
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.8_a.png)
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.8_b.png)
+![pid_control](images/generated/v0/linear_motion_pid_control_result_0.8_a.png)
+![pid_control](images/generated/v0/linear_motion_pid_control_result_0.8_b.png)
 P制御入力
 
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.8_a.png)
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.8_b.png)
+![p_control](images/generated/v0/linear_motion_p_control_result_0.8_a.png)
+![p_control](images/generated/v0/linear_motion_p_control_result_0.8_b.png)
 I制御入力
 
-![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_a.png)
-![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_b.png)
+![i_control](images/generated/v0/linear_motion_d_control_result_0.8_a.png)
+![i_control](images/generated/v0/linear_motion_d_control_result_0.8_b.png)
 D制御入力
 
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_a.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.8_b.png)
+![d_control](images/generated/v0/linear_motion_d_control_result_0.8_a.png)
+![d_control](images/generated/v0/linear_motion_d_control_result_0.8_b.png)
 
 
 ### version0.7
@@ -85,28 +85,28 @@ D制御入力
 運動方程式が基本的には直線運動と同じなので,挙動としては同じ制御結果になっている.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_result_0.7_a.png)
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_p_control_result_0.7_a.png)
-![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_pid_control_result_0.7_a.png)
+![trajectry](images/generated/v0/rigid_body_rotation_result_0.7_a.png)
+![p_control](images/generated/v0/rigid_body_rotation_p_control_result_0.7_a.png)
+![i_control](images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
+![d_control](images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
+![pid_control](images/generated/v0/rigid_body_rotation_pid_control_result_0.7_a.png)
 
 ゲインを調整して振動をせずに収束できるようにした.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_result_0.7_b.png)
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_p_control_result_0.7_b.png)
-![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_b.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_b.png)
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_pid_control_result_0.7_b.png)
+![trajectry](images/generated/v0/rigid_body_rotation_result_0.7_b.png)
+![p_control](images/generated/v0/rigid_body_rotation_p_control_result_0.7_b.png)
+![i_control](images/generated/v0/rigid_body_rotation_d_control_result_0.7_b.png)
+![d_control](images/generated/v0/rigid_body_rotation_d_control_result_0.7_b.png)
+![pid_control](images/generated/v0/rigid_body_rotation_pid_control_result_0.7_b.png)
 
 gif動画.
 
 振動して収束するケース.
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_animation_0.7_a.gif)
+![pid_control](images/generated/v0/rigid_body_rotation_animation_0.7_a.gif)
 
 オーバーシュートせずに収束するケース.
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_animation_0.7_b.gif)
+![pid_control](images/generated/v0/rigid_body_rotation_animation_0.7_b.gif)
 
 
 
@@ -124,28 +124,28 @@ I制御を実装し, PID制御にしてみた.
 PID全部のグラフも出力できるようにした.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.6_a.png)
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.6_a.png)
-![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_a.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_a.png)
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_a.png)
+![trajectry](images/generated/v0/linear_motion_result_0.6_a.png)
+![p_control](images/generated/v0/linear_motion_p_control_result_0.6_a.png)
+![i_control](images/generated/v0/linear_motion_d_control_result_0.6_a.png)
+![d_control](images/generated/v0/linear_motion_d_control_result_0.6_a.png)
+![pid_control](images/generated/v0/linear_motion_pid_control_result_0.6_a.png)
 
 ゲインを調整して振動をせずに収束できるようにした.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.6_b.png)
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.6_b.png)
-![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_b.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_b.png)
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_b.png)
+![trajectry](images/generated/v0/linear_motion_result_0.6_b.png)
+![p_control](images/generated/v0/linear_motion_p_control_result_0.6_b.png)
+![i_control](images/generated/v0/linear_motion_d_control_result_0.6_b.png)
+![d_control](images/generated/v0/linear_motion_d_control_result_0.6_b.png)
+![pid_control](images/generated/v0/linear_motion_pid_control_result_0.6_b.png)
 
 簡単にgif動画化した.
 
 振動して収束するケース.
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.6_a.gif)
+![pid_control](images/generated/v0/linear_motion_animation_0.6_a.gif)
 
 オーバーシュートせずに収束するケース.
-![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.6_b.gif)
+![pid_control](images/generated/v0/linear_motion_animation_0.6_b.gif)
 
 
 ### version0.5
@@ -160,10 +160,10 @@ D制御を実装し, PD制御にしてみた.
 質量も追加してみたが、さほど大きな影響はなさそう.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.5_.png)
-![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.5_.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.5_.png)
-![pd_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pd_control_result_0.5_.png)
+![trajectry](images/generated/v0/linear_motion_result_0.5_.png)
+![p_control](images/generated/v0/linear_motion_p_control_result_0.5_.png)
+![d_control](images/generated/v0/linear_motion_d_control_result_0.5_.png)
+![pd_control](images/generated/v0/linear_motion_pd_control_result_0.5_.png)
 
 ### version0.4
 [Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.4)
@@ -175,7 +175,7 @@ P制御だけでは止まらない事が確認できた.
 目標点を中心として,加速度が完全に対象になるから収束しないが想定通りではある.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.4_.png)
+![trajectry](images/generated/v0/linear_motion_result_0.4_.png)
 
 
 ### version0.3
@@ -186,7 +186,7 @@ P制御だけでは止まらない事が確認できた.
 加速度を一定として加える事で、等加速度直線運動が実装できている事が確認できた.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.3_.png)
+![trajectry](images/generated/v0/linear_motion_result_0.3_.png)
 
 ### version0.2
 [Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.2)
@@ -196,7 +196,7 @@ P制御だけでは止まらない事が確認できた.
 初期速度を設定することで右肩上がりの等速直線運動が実装できている事が確認できた.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.2_.png)
+![trajectry](images/generated/v0/linear_motion_result_0.2_.png)
 
 
 ### version0.1
@@ -209,7 +209,7 @@ version0.1として一次元の直線運動のダイナミクスを実装.
 初期値0でとりあえず横一直線グラフの作成ができていることが確認できた.
 
 ###### Figures 
-![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.1_.png)
+![trajectry](images/generated/v0/linear_motion_result_0.1_.png)
 
 
 ___
