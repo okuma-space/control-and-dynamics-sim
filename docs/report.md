@@ -36,6 +36,40 @@
 
 [PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/8)
 
+平面上の剛体の回転運動を実装した.
+運動方程式が基本的には直線運動と同じなので,挙動としては同じ制御結果になっている.
+
+###### Figures 
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_result_0.7_a.png)
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_p_control_result_0.7_a.png)
+![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_a.png)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_pid_control_result_076_a.png)
+
+ゲインを調整して振動をせずに収束できるようにした.
+
+###### Figures 
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_result_0.7_b.png)
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_p_control_result_0.7_b.png)
+![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_b.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_d_control_result_0.7_b.png)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_rotation_pid_control_result_0.7_b.png)
+
+gif動画.
+
+振動して収束するケース.
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_animation_0.7_a.gif)
+
+オーバーシュートせずに収束するケース.
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/rigid_body_animation_0.7_b.gif)
+
+
+
+### version0.6
+[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.6)
+
+[PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/8)
+
 I制御を実装し, PID制御にしてみた.
 
 ゲインに敏感で発散しやすく,また制御効果もあまり大きくはない.
