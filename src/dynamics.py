@@ -11,7 +11,7 @@ def linear_motion_model(state_vector, control_input, mass):
             state_vector[0]: 位置 [m]
             state_vector[1]: 速度 [m/s]
 
-        Control input 制御入力: 加速度 [m/s^2]
+        Control input 制御入力: 力 [N]
 
         mass: 質量 [kg]
 
@@ -19,7 +19,7 @@ def linear_motion_model(state_vector, control_input, mass):
         numpy.ndarray: 一次微分 [position_dot 速度[m/s], velocity_dot 加速度[m/s^2]]
     """
     velocity = state_vector[1]
-    acceleration = control_input / mass
+    acceleration = control_input / mass # 加速度[m/s^2] = 力[N] / 質量[kg]
 
     position_derivative = velocity
     velocity_derivative = acceleration
