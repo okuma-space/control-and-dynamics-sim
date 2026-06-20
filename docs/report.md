@@ -30,6 +30,41 @@
 ## 5 Environment models(環境モデル)
 
 ## Appendix. 過去versionの検証ログ(保存/振り返り用)
+
+### version0.6
+[Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.6)
+
+[PR](https://github.com/okuma-space/control-and-dynamics-sim/pull/8)
+
+I制御を実装し, PID制御にしてみた.
+
+ゲインに敏感で発散しやすく,また制御効果もあまり大きくはない.
+
+どうも今回のような制御モデルだと安定収束できるから,あまり効果はないらしい.収束地点にバイアスなどがあると偏差の積分が効いてきて,I制御による補正が効いてくるらしい.
+
+PID全部のグラフも出力できるようにした.
+
+###### Figures 
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.6_a.png)
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.6_a.png)
+![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_a.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_a.png)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_a.png)
+
+ゲインを調整して振動をせずに収束できるようにした.
+
+###### Figures 
+![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.6_b.png)
+![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.6_b.png)
+![i_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_b.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.6_b.png)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_b.png)
+
+簡単にgif動画化した.
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.6_a.gif)
+![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.6_b.gif)
+
+
 ### version0.5
 [Repository](https://github.com/okuma-space/control-and-dynamics-sim/tree/v0.5)
 

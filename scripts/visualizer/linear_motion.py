@@ -26,7 +26,6 @@ def plot_position_velocity(
 
     fig, ax_position = plt.subplots(figsize=(10, 6))
 
-    # 左軸: 位置
     position_line = ax_position.plot(
         time_array,
         position_history,
@@ -37,7 +36,6 @@ def plot_position_velocity(
     ax_position.set_ylabel("position [m]")
     ax_position.grid(True)
 
-    # 右軸: 速度
     ax_velocity = ax_position.twinx()
     velocity_line = ax_velocity.plot(
         time_array,
@@ -47,7 +45,6 @@ def plot_position_velocity(
     )
     ax_velocity.set_ylabel("velocity [m/s]")
 
-    # 凡例をまとめる
     lines = position_line + velocity_line
     labels = [line.get_label() for line in lines]
     ax_position.legend(lines, labels, loc="upper right")
@@ -70,14 +67,13 @@ def plot_position_error_p_control(
     """
     Figure 2:
         position error [m]
-        P control input [m/s^2]
+        P control input [N]
     """
 
     output_path = _prepare_output_path(output_path)
 
     fig, ax_error = plt.subplots(figsize=(10, 6))
 
-    # 左軸: 位置偏差
     error_line = ax_error.plot(
         time_array,
         position_error_array,
@@ -88,20 +84,17 @@ def plot_position_error_p_control(
     ax_error.set_ylabel("position error [m]")
     ax_error.grid(True)
 
-    # 右軸: P制御入力
     ax_control = ax_error.twinx()
     control_line = ax_control.plot(
         time_array,
         p_control_input_array,
         color="tab:orange",
-        label="P control input [m/s^2]",
+        label="P control input [N]",
     )
-    ax_control.set_ylabel("P control input [m/s^2]")
+    ax_control.set_ylabel("P control input [N]")
 
-    # 0ライン
     ax_error.axhline(0.0, linestyle="--", linewidth=1.0)
 
-    # 凡例をまとめる
     lines = error_line + control_line
     labels = [line.get_label() for line in lines]
     ax_error.legend(lines, labels, loc="upper right")
@@ -124,14 +117,13 @@ def plot_derivative_position_error_d_control(
     """
     Figure 3:
         derivative position error [m/s]
-        D control input [m/s^2]
+        D control input [N]
     """
 
     output_path = _prepare_output_path(output_path)
 
     fig, ax_derivative_error = plt.subplots(figsize=(10, 6))
 
-    # 左軸: 位置偏差の一階微分
     derivative_error_line = ax_derivative_error.plot(
         time_array,
         derivative_position_error_array,
@@ -142,20 +134,17 @@ def plot_derivative_position_error_d_control(
     ax_derivative_error.set_ylabel("derivative position error [m/s]")
     ax_derivative_error.grid(True)
 
-    # 右軸: D制御入力
     ax_d_control = ax_derivative_error.twinx()
     d_control_line = ax_d_control.plot(
         time_array,
         d_control_input_array,
         color="tab:orange",
-        label="D control input [m/s^2]",
+        label="D control input [N]",
     )
-    ax_d_control.set_ylabel("D control input [m/s^2]")
+    ax_d_control.set_ylabel("D control input [N]")
 
-    # 0ライン
     ax_derivative_error.axhline(0.0, linestyle="--", linewidth=1.0)
 
-    # 凡例をまとめる
     lines = derivative_error_line + d_control_line
     labels = [line.get_label() for line in lines]
     ax_derivative_error.legend(lines, labels, loc="upper right")
@@ -169,56 +158,48 @@ def plot_derivative_position_error_d_control(
     return output_path
 
 
-def plot_pd_control_input(
+def plot_integral_position_error_i_control(
     time_array,
-    p_control_input_array,
-    d_control_input_array,
-    p_d_control_input_array,
+    integral_position_error_array,
+    i_control_input_array,
     output_path,
 ):
     """
     Figure 4:
-        P control input [m/s^2]
-        D control input [m/s^2]
-        P + D control input [m/s^2]
+        integral position error [m s]
+        I control input [N]
     """
 
     output_path = _prepare_output_path(output_path)
 
-    fig, ax_pd_control = plt.subplots(figsize=(10, 6))
+    fig, ax_integral_error = plt.subplots(figsize=(10, 6))
 
-    p_line = ax_pd_control.plot(
+    integral_error_line = ax_integral_error.plot(
         time_array,
-        p_control_input_array,
+        integral_position_error_array,
         color="tab:blue",
-        label="P control input [m/s^2]",
+        label="integral position error [m s]",
     )
-    d_line = ax_pd_control.plot(
+    ax_integral_error.set_xlabel("time [s]")
+    ax_integral_error.set_ylabel("integral position error [m s]")
+    ax_integral_error.grid(True)
+
+    ax_i_control = ax_integral_error.twinx()
+    i_control_line = ax_i_control.plot(
         time_array,
-        d_control_input_array,
+        i_control_input_array,
         color="tab:orange",
-        label="D control input [m/s^2]",
+        label="I control input [N]",
     )
-    pd_line = ax_pd_control.plot(
-        time_array,
-        p_d_control_input_array,
-        color="tab:green",
-        label="P + D control input [m/s^2]",
-    )
+    ax_i_control.set_ylabel("I control input [N]")
 
-    ax_pd_control.set_xlabel("time [s]")
-    ax_pd_control.set_ylabel("control input [m/s^2]")
-    ax_pd_control.grid(True)
+    ax_integral_error.axhline(0.0, linestyle="--", linewidth=1.0)
 
-    # 0ライン
-    ax_pd_control.axhline(0.0, linestyle="--", linewidth=1.0)
-
-    # 凡例をまとめる
-    lines = p_line + d_line + pd_line
+    lines = integral_error_line + i_control_line
     labels = [line.get_label() for line in lines]
-    ax_pd_control.legend(lines, labels, loc="upper right")
+    ax_integral_error.legend(lines, labels, loc="upper right")
 
-    fig.suptitle("P / D / P+D Control Input")
+    fig.suptitle("Integral Position Error and I Control Input")
     fig.tight_layout()
 
     fig.savefig(output_path, dpi=150)
@@ -227,68 +208,125 @@ def plot_pd_control_input(
     return output_path
 
 
-def plot_linear_motion(
-    state_history,
-    time_vector,
-    position_error_history,
-    derivative_position_error_history,
-    p_control_input_history,
-    d_control_input_history,
-    p_d_control_input_history,
-    output_path="docs/linear_motion_result.png",
-    control_output_path="docs/linear_motion_p_control_result.png",
-    derivative_control_output_path="docs/linear_motion_d_control_result.png",
-    pd_control_output_path="docs/linear_motion_pd_control_result.png",
+def plot_pid_control_input(
+    time_array,
+    p_control_input_array,
+    i_control_input_array,
+    d_control_input_array,
+    pid_control_input_array,
+    output_path,
 ):
+    """
+    Figure 5:
+        P control input [N]
+        I control input [N]
+        D control input [N]
+        PID control input [N]
+    """
+
+    output_path = _prepare_output_path(output_path)
+
+    fig, ax_pid_control = plt.subplots(figsize=(10, 6))
+
+    p_line = ax_pid_control.plot(
+        time_array,
+        p_control_input_array,
+        color="tab:blue",
+        label="P control input [N]",
+    )
+    i_line = ax_pid_control.plot(
+        time_array,
+        i_control_input_array,
+        color="tab:purple",
+        label="I control input [N]",
+    )
+    d_line = ax_pid_control.plot(
+        time_array,
+        d_control_input_array,
+        color="tab:orange",
+        label="D control input [N]",
+    )
+    pid_line = ax_pid_control.plot(
+        time_array,
+        pid_control_input_array,
+        color="tab:green",
+        label="PID control input [N]",
+    )
+
+    ax_pid_control.set_xlabel("time [s]")
+    ax_pid_control.set_ylabel("control input [N]")
+    ax_pid_control.grid(True)
+
+    ax_pid_control.axhline(0.0, linestyle="--", linewidth=1.0)
+
+    lines = p_line + i_line + d_line + pid_line
+    labels = [line.get_label() for line in lines]
+    ax_pid_control.legend(lines, labels, loc="upper right")
+
+    fig.suptitle("P / I / D / PID Control Input")
+    fig.tight_layout()
+
+    fig.savefig(output_path, dpi=150)
+    plt.close(fig)
+
+    return output_path
+
+
+def plot_linear_motion(simulation_history, output_dir_path):
     """
     Plot histories of 1D linear motion simulation.
     """
+    output_dir_path = Path(output_dir_path)
+    output_dir_path.mkdir(parents=True, exist_ok=True)
 
-    time_array = np.array(time_vector)
-    state_history_array = np.array(state_history)
+    time_array = np.array(simulation_history.time)
+    state_history_array = np.array(simulation_history.state)
 
-    position_error_array = np.array(position_error_history)
-    derivative_position_error_array = np.array(derivative_position_error_history)
+    position_error_array = np.array(simulation_history.error.value)
+    derivative_position_error_array = np.array(simulation_history.error.derivative)
+    integral_position_error_array = np.array(simulation_history.error.integral)
 
-    p_control_input_array = np.array(p_control_input_history)
-    d_control_input_array = np.array(d_control_input_history)
-    p_d_control_input_array = np.array(p_d_control_input_history)
+    p_control_input_array = np.array(simulation_history.control_input.p)
+    i_control_input_array = np.array(simulation_history.control_input.i)
+    d_control_input_array = np.array(simulation_history.control_input.d)
+    pid_control_input_array = np.array(simulation_history.control_input.pid)
 
     position_history = state_history_array[:, 0]
     velocity_history = state_history_array[:, 1]
 
-    position_velocity_output_path = plot_position_velocity(
+    plot_position_velocity(
         time_array=time_array,
         position_history=position_history,
         velocity_history=velocity_history,
-        output_path=output_path,
+        output_path=output_dir_path / "linear_motion_result.png",
     )
 
-    position_error_p_control_output_path = plot_position_error_p_control(
+    plot_position_error_p_control(
         time_array=time_array,
         position_error_array=position_error_array,
         p_control_input_array=p_control_input_array,
-        output_path=control_output_path,
+        output_path=output_dir_path / "linear_motion_p_control_result.png",
     )
 
-    derivative_error_d_control_output_path = plot_derivative_position_error_d_control(
+    plot_derivative_position_error_d_control(
         time_array=time_array,
         derivative_position_error_array=derivative_position_error_array,
         d_control_input_array=d_control_input_array,
-        output_path=derivative_control_output_path,
+        output_path=output_dir_path / "linear_motion_d_control_result.png",
     )
 
-    pd_control_input_output_path = plot_pd_control_input(
+    plot_integral_position_error_i_control(
+        time_array=time_array,
+        integral_position_error_array=integral_position_error_array,
+        i_control_input_array=i_control_input_array,
+        output_path=output_dir_path / "linear_motion_i_control_result.png",
+    )
+
+    plot_pid_control_input(
         time_array=time_array,
         p_control_input_array=p_control_input_array,
+        i_control_input_array=i_control_input_array,
         d_control_input_array=d_control_input_array,
-        p_d_control_input_array=p_d_control_input_array,
-        output_path=pd_control_output_path,
-    )
-
-    return (
-        position_velocity_output_path,
-        position_error_p_control_output_path,
-        derivative_error_d_control_output_path,
-        pd_control_input_output_path,
+        pid_control_input_array=pid_control_input_array,
+        output_path=output_dir_path / "linear_motion_pid_control_result.png",
     )
