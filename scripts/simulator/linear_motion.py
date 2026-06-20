@@ -1,6 +1,76 @@
 import dynamics
+import simulation_history
 import numpy as np
 import visualizer.linear_motion as visualize
+import visualizer.linear_motion_animation as animation_visualize
+
+
+def propagate(
+    current_state,
+    target_state,
+    p_gain,
+    i_gain,
+    d_gain,
+    mass,
+    simulate_time,
+    resolution_sec,
+    simulation_history,
+):
+    """
+    Propagate 1D linear motion with PID control.
+    """
+
+    current_time = simulation_history.time[-1]
+    integral_error = simulation_history.error.integral[-1]
+    pid_control_input = simulation_history.control_input.pid[-1]
+
+    # 伝搬ループ
+    while current_time < simulate_time:
+        # ダイナミクス計算
+        state_derivative = dynamics.linear_motion_model(
+            current_state,
+            pid_control_input,
+            mass,
+        )
+
+        # 状態更新
+        current_time += resolution_sec
+        current_state = current_state + state_derivative * resolution_sec
+
+        # 偏差更新
+        # --------------------------------------------------------------
+        # 偏差計算
+        error = target_state[0] - current_state[0]
+
+        # 偏差の積分
+        integral_error += error * resolution_sec
+
+        # 偏差の一階微分
+        derivative_error = (error - simulation_history.error.value[-1]) / resolution_sec
+        # --------------------------------------------------------------
+
+        # PID制御入力更新
+        # --------------------------------------------------------------
+        p_control_input = error * p_gain
+        i_control_input = integral_error * i_gain
+        d_control_input = derivative_error * d_gain
+        pid_control_input = p_control_input + i_control_input + d_control_input
+        # --------------------------------------------------------------
+
+        # 履歴保存
+        simulation_history.append(
+            current_time=current_time,
+            current_state=current_state,
+            error=error,
+            derivative_error=derivative_error,
+            integral_error=integral_error,
+            p_control_input=p_control_input,
+            i_control_input=i_control_input,
+            d_control_input=d_control_input,
+            pid_control_input=pid_control_input,
+        )
+
+    return simulation_history
 
 
 def simulate():
@@ -8,111 +78,85 @@ def simulate():
     Simulates the linear motion of a system using the linear motion dynamics model.
     """
 
-    # 初期値
-    simulate_time = 1000.0  # シミュレーション実行時間[sec]
-    resolution_sec = 0.01  # シミュレーション時間解像度[sec]
-    current_state = np.array([0.0, 0.0])  # 初期位置[m],初期速度[m/s]
-    target_state = np.array([50.0, 0.0])  # 目標位置[m],目標速度[m/s]
-    p_gain = 0.005  # P制御器のゲイン
-    d_gain = 0.015  # D制御器のゲイン
+    # シミュレーションパラメータ
+    # --------------------------------------------------------------
+    simulate_time = 1000.0  # シミュレーション実行時間 [sec]
+    resolution_sec = 0.01  # シミュレーション時間解像度 [sec]
+
     current_time = 0.0
-    mass = 1.0  # 質量[kg]
+    current_state = np.array([0.0, 0.0])  # 初期位置 [m], 初期速度 [m/s]
+    target_state = np.array([50.0, 0.0])  # 目標位置 [m], 目標速度 [m/s]
 
-    # 初期偏差
-    position_error = target_state[0] - current_state[0]
-    derivative_position_error = 0.0
+    p_gain = 1.0e-2  # P制御器のゲイン
+    i_gain = 1.0e-6  # I制御器のゲイン
+    d_gain = 5.0e-1  # D制御器のゲイン
 
-    # 初期制御入力を計算する
-    p_control_input = position_error * p_gain
-    p_d_control_input = p_control_input
+    mass = 1.0  # 質量 [kg]
+    # --------------------------------------------------------------
 
-    # 初期値を履歴に設定
-    time_vector = [current_time]  # 時刻の履歴
-    state_history = [current_state.copy()]  # 状態ベクトルの履歴
-    position_error_history = [position_error]  # 位置誤差[m]
-    derivative_position_error_history = [
-        derivative_position_error
-    ]  # 位置誤差の一時微分[m/s ]
-    p_control_input_history = [p_control_input]  # P制御入力[m/s^2]
-    d_control_input_history = [0.0]  # D制御入力[m/s^2]
-    p_d_control_input_history = [p_d_control_input]  # P+D制御入力[m/s^2]
+    # 初期化
+    # --------------------------------------------------------------
+    initial_error = target_state[0] - current_state[0]
+    initial_derivative_error = 0.0
+    initial_integral_error = 0.0
 
-    # 伝搬ループ
-    while current_time < simulate_time:
-        # ダイナミクス計算
-        # ------------------------------------------------
-        # ダイナミクスモデルから状態ベクトルの一次微分を取得する
-        state_derivative = dynamics.linear_motion_model(
-            current_state, p_d_control_input, mass
-        )  # 初期加速度[m/s^2]
-        # ------------------------------------------------
+    initial_p_control_input = initial_error * p_gain
+    initial_i_control_input = initial_integral_error * i_gain
+    initial_d_control_input = initial_derivative_error * d_gain
+    initial_pid_control_input = (
+        initial_p_control_input + initial_i_control_input + initial_d_control_input
+    )
 
-        # 状態更新
-        # ------------------------------------------------
-        # 時刻の更新
-        current_time += resolution_sec
+    # 偏差履歴の初期化
+    error_history = simulation_history.ErrorHistory(
+        value=[initial_error],
+        derivative=[initial_derivative_error],
+        integral=[initial_integral_error],
+    )
 
-        # 状態ベクトルを更新する
-        current_state = current_state + state_derivative * resolution_sec
-        # ------------------------------------------------
+    # 制御入力履歴の初期化
+    control_input_history = simulation_history.ControlInputHistory(
+        p=[initial_p_control_input],
+        i=[initial_i_control_input],
+        d=[initial_d_control_input],
+        pid=[initial_pid_control_input],
+    )
 
-        # 偏差更新
-        # ------------------------------------------------
-        # 位置誤差(偏差[m])を計算
-        position_error = target_state[0] - current_state[0]
+    # シミュレーション履歴の初期化
+    history = simulation_history.SimulationHistory(
+        time=[current_time],
+        state=[current_state.copy()],
+        error=error_history,
+        control_input=control_input_history,
+    )
+    # --------------------------------------------------------------
 
-        # 偏差の一時微分を計算
-        derivative_position_error = (
-            position_error - position_error_history[-1]
-        ) / resolution_sec
-        # ------------------------------------------------
+    # 伝搬シミュレーション
+    history = propagate(
+        current_state=current_state,
+        target_state=target_state,
+        p_gain=p_gain,
+        i_gain=i_gain,
+        d_gain=d_gain,
+        mass=mass,
+        simulate_time=simulate_time,
+        resolution_sec=resolution_sec,
+        simulation_history=history,
+    )
 
-        # 制御入力更新
-        # ------------------------------------------------
-        # P 制御入力を計算する
-        p_control_input = position_error * p_gain
-
-        # D 制御入力を計算する
-        d_control_input = derivative_position_error * d_gain
-
-        # P+D 制御入力を計算する
-        p_d_control_input = p_control_input + d_control_input
-        # ------------------------------------------------
-
-        # 結果保存
-        # ------------------------------------------------
-        # 時刻を保存する
-        time_vector.append(current_time)
-
-        # 偏差の保存
-        position_error_history.append(position_error)
-
-        # 偏差の一時微分の保存
-        derivative_position_error_history.append(derivative_position_error)
-
-        # P 制御入力を保存する
-        p_control_input_history.append(p_control_input)
-
-        # D 制御入力を保存する
-        d_control_input_history.append(d_control_input)
-
-        # P+D 制御入力を保存する
-        p_d_control_input_history.append(p_d_control_input)
-
-        # 状態ベクトルを保存する
-        state_history.append(current_state.copy())
-        # ------------------------------------------------
-
-    # visualize
+    # 可視化
     visualize.plot_linear_motion(
-        state_history,
-        time_vector,
-        position_error_history,
-        derivative_position_error_history,
-        p_control_input_history,
-        d_control_input_history,
-        p_d_control_input_history,
-        output_path="docs/linear_motion_result.png",
+        history,
+        output_dir_path="docs/images/generated/",
+    )
+
+    # 動画出力
+    animation_visualize.create_linear_motion_animation(
+        simulation_history=history,
+        target_position=target_state[0],
+        output_path="docs/images/generated/linear_motion_animation.gif",
+        fps=30,
+        max_frames=800,
     )
 
 
