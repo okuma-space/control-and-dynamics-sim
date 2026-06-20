@@ -61,7 +61,11 @@ PID全部のグラフも出力できるようにした.
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pid_control_result_0.6_b.png)
 
 簡単にgif動画化した.
+
+振動して収束するケース.
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.6_a.gif)
+
+オーバーシュートせずに収束するケース.
 ![pid_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_animation_0.6_b.gif)
 
 
