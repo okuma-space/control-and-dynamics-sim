@@ -5,7 +5,7 @@ from visualizer import linear_motion_animation as linear_motion_animation
 from visualizer import rigid_body_rotation_animation as rigid_body_rotation_animation
 import numpy as np
 import argparse
-from model import simulation_history
+
 
 def linear_motion_simulation():
 
@@ -26,17 +26,18 @@ def linear_motion_simulation():
     # --------------------------------------------------------------
 
     # シミュレーション実行
-    history = linear_motion.simulate( simulate_time  ,
-    resolution_sec ,
-    current_time ,
-    current_state ,
-    target_state  ,
-    p_gain ,
-    i_gain ,
-    d_gain ,
-    mass )  
+    history = linear_motion.simulate(
+        simulate_time,
+        resolution_sec,
+        current_time,
+        current_state,
+        target_state,
+        p_gain,
+        i_gain,
+        d_gain,
+        mass,
+    )
 
-   
     # 可視化
     linear_motion_visualize.plot_linear_motion(
         history,
@@ -51,6 +52,7 @@ def linear_motion_simulation():
         fps=30,
         max_frames=800,
     )
+
 
 def rigid_body_rotation_simulation():
 
@@ -70,17 +72,18 @@ def rigid_body_rotation_simulation():
     # --------------------------------------------------------------
 
     # シミュレーション実行
-    history = rigid_body_rotation.simulate( simulate_time  ,
-    resolution_sec ,
-    current_time ,
-    current_state ,
-    target_state  ,
-    p_gain ,
-    i_gain ,
-    d_gain ,
-    moment_of_inertia )  
+    history = rigid_body_rotation.simulate(
+        simulate_time,
+        resolution_sec,
+        current_time,
+        current_state,
+        target_state,
+        p_gain,
+        i_gain,
+        d_gain,
+        moment_of_inertia,
+    )
 
-   
     # 可視化
     rigid_body_rotation_visualize.plot_rigid_body_rotation(
         history,

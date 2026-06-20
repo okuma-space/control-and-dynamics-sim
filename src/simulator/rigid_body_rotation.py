@@ -7,6 +7,7 @@ import math
 def normalize_angle(angle):
     return (angle + np.pi) % (2.0 * np.pi) - np.pi
 
+
 def propagate(
     current_state,
     target_state,
@@ -38,7 +39,9 @@ def propagate(
         # 状態更新
         current_time += resolution_sec
         current_state = current_state + state_derivative * resolution_sec
-        current_state[0] = math.fmod(current_state[0], 2 * math.pi)  # 角度を0~2πの範囲に制限
+        current_state[0] = math.fmod(
+            current_state[0], 2 * math.pi
+        )  # 角度を0~2πの範囲に制限
 
         # 偏差更新
         # --------------------------------------------------------------
@@ -49,7 +52,9 @@ def propagate(
         integral_error += error * resolution_sec
 
         # 偏差の一階微分(角度を-π~πの範囲に正規化)
-        derivative_error = normalize_angle(error - simulation_history.error.value[-1]) / resolution_sec
+        derivative_error = (
+            normalize_angle(error - simulation_history.error.value[-1]) / resolution_sec
+        )
         # --------------------------------------------------------------
 
         # PID制御入力更新
@@ -85,7 +90,8 @@ def simulate(
     p_gain,
     i_gain,
     d_gain,
-    moment_of_inertia):
+    moment_of_inertia,
+):
     """
     Simulates the rigid body rotation of a system using the rigid body rotation dynamics model.
     """
@@ -139,6 +145,7 @@ def simulate(
         resolution_sec=resolution_sec,
         simulation_history=history,
     )
+
 
 if __name__ == "__main__":
     simulate()

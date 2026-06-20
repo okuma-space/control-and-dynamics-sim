@@ -71,19 +71,20 @@ def propagate(
     return simulation_history
 
 
-def simulate(   simulate_time = 1000.0 ,
-    resolution_sec = 0.01  ,
-    current_time = 0.0,
-    current_state = np.array([0.0, 0.0]) ,
-    target_state = np.array([50.0, 0.0]) ,
-    p_gain = 1.0e-2 ,
-    i_gain = 1.0e-6 ,
-    d_gain = 5.0e-1 ,
-    mass = 1.0 ):
+def simulate(
+    simulate_time=1000.0,
+    resolution_sec=0.01,
+    current_time=0.0,
+    current_state=np.array([0.0, 0.0]),
+    target_state=np.array([50.0, 0.0]),
+    p_gain=1.0e-2,
+    i_gain=1.0e-6,
+    d_gain=5.0e-1,
+    mass=1.0,
+):
     """
     Simulates the linear motion of a system using the linear motion dynamics model.
     """
-
 
     # 初期化
     # --------------------------------------------------------------
@@ -134,7 +135,6 @@ def simulate(   simulate_time = 1000.0 ,
         resolution_sec=resolution_sec,
         simulation_history=history,
     )
-
 
 
 if __name__ == "__main__":
