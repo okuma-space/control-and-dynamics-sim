@@ -39,10 +39,12 @@ D制御を実装し, PD制御にしてみた.
 
 正しく制御されて目標位置で停止している事が確認できる.
 
+質量も追加してみたが、さほど大きな影響はなさそう.
+
 ###### Figures 
 ![trajectry](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_result_0.5_.png)
 ![p_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_p_control_result_0.5_.png)
-![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.5__.png)
+![d_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_d_control_result_0.5_.png)
 ![pd_control](https://okuma-space.github.io/control-and-dynamics-sim/images/generated/v0/linear_motion_pd_control_result_0.5_.png)
 
 ### version0.4
